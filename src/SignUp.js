@@ -1,11 +1,8 @@
-// Signup.js
-
 import React, { useState } from 'react';
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './context/authContext';
-import conf from './assets/conf.jpg';
 import reg from './assets/register.png';
 
 const Signup = () => {
@@ -38,14 +35,12 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen gap-40" style={{ backgroundImage: `url(${conf})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div>
-        <img src={reg} className='w-[600px]' alt="Register" />
-      </div>
-      <div>
-        <h2 className="text-center mb-4 text-4xl font-bold text-white">SIGN UP</h2>
-        <form className='flex flex-col items-center bg-gray-600 bg-opacity-50 rounded-2xl p-4 shadow-lg' onSubmit={handleRegister}>
-          <div className="mb-4 flex gap-2 items-center border rounded-lg p-2 bg-white w-96">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-gray-900">
+      <h2 className="text-center text-4xl font-bold text-white">SIGN UP</h2>
+      <div className="w-full max-w-md p-4 bg-gray-600 bg-opacity-50 rounded-2xl shadow-lg">
+        <img src={reg} className="w-full mb-4" alt="Register" />
+        <form onSubmit={handleRegister}>
+          <div className="mb-4 flex items-center border rounded-lg p-2 bg-white">
             <MdOutlineEmail size={25} color='gray' />
             <input 
               type="email" 
@@ -57,7 +52,7 @@ const Signup = () => {
               className="rounded-md px-3 py-2 mt-1 w-full outline-none"
             />
           </div>
-          <div className="mb-4 flex gap-2 items-center border rounded-lg p-2 bg-white w-96">
+          <div className="mb-4 flex items-center border rounded-lg p-2 bg-white">
             <RiLockPasswordFill size={25} color='gray' />
             <input 
               type="password" 
@@ -69,7 +64,7 @@ const Signup = () => {
               className="rounded-md px-3 py-2 mt-1 w-full outline-none"
             />
           </div>
-          <div className="mb-4 flex gap-2 items-center border rounded-lg p-2 bg-white w-96">
+          <div className="mb-4 flex items-center border rounded-lg p-2 bg-white">
             <RiLockPasswordFill size={25} color='gray' />
             <input 
               type="password" 
@@ -81,12 +76,12 @@ const Signup = () => {
               className="rounded-md px-3 py-2 mt-1 w-full outline-none"
             />
           </div>
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 font-bold">Sign Up</button>
-          <div className='flex gap-2 items-center justify-center'>
-            <label className='text-xl text-white'>Already have an account?</label>
-            <Link className='text-xl text-blue-300 underline' to='/signin'>Sign In</Link>
-          </div>
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 font-bold w-full">Sign Up</button>
         </form>
+        <div className='flex justify-center'>
+          <label className='text-lg text-white'>Already have an account?</label>
+          <Link className='text-lg text-blue-300 underline ml-1' to='/signin'>Sign In</Link>
+        </div>
       </div>
     </div>
   );
